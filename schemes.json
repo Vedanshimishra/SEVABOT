@@ -1,0 +1,119 @@
+[
+    {
+        "name": "Ayushman Bharat",
+        "description": "Health insurance scheme providing coverage of Rs. 5 lakh per family per year.",
+        "eligibility": "Families identified under SECC database.",
+        "income_criteria": "No explicit income limit; families under SECC are eligible.",
+        "state_criteria": "Applicable across India.",
+        "age_criteria": "No specific age limit.",
+        "url": "https://pmjay.gov.in"
+    },
+    {
+        "name": "Pradhan Mantri Jan Dhan Yojana (PMJDY)",
+        "description": "Financial inclusion program offering affordable access to financial services like savings accounts and insurance.",
+        "eligibility": "All Indian citizens, particularly economically weaker sections.",
+        "income_criteria": "None specified.",
+        "state_criteria": "Applicable across India.",
+        "age_criteria": "10 years and above (for bank accounts).",
+        "url": "https://pmjdy.gov.in"
+    },
+    {
+        "name": "Pradhan Mantri Awas Yojana (PMAY)",
+        "description": "Housing scheme aiming to provide affordable housing for all by 2022.",
+        "eligibility": "Economically weaker sections, LIG, and MIG groups.",
+        "income_criteria": "EWS: Up to Rs. 3 lakh; LIG: Rs. 3 to 6 lakh; MIG: Rs. 6 to 18 lakh.",
+        "state_criteria": "Applicable across India.",
+        "age_criteria": "18 years and above.",
+        "url": "https://pmaymis.gov.in"
+    },
+    {
+        "name": "Pradhan Mantri Kaushal Vikas Yojana (PMKVY)",
+        "description": "Skill development program to train youth for industry-relevant jobs.",
+        "eligibility": "Unemployed youth and school/college dropouts.",
+        "income_criteria": "None specified.",
+        "state_criteria": "Applicable across India.",
+        "age_criteria": "18 to 35 years.",
+        "url": "https://www.pmkvyofficial.org"
+    },
+    {
+        "name": "Pradhan Mantri Ujjwala Yojana (PMUY)",
+        "description": "Provides free LPG connections to women from BPL families.",
+        "eligibility": "BPL households with valid identification.",
+        "income_criteria": "As per SECC or BPL criteria.",
+        "state_criteria": "Applicable across India.",
+        "age_criteria": "18 years and above.",
+        "url": "https://pmuy.gov.in"
+    },
+    {
+        "name": "Digital India",
+        "description": "Initiative to transform India into a digitally empowered society and knowledge economy.",
+        "eligibility": "Open to all citizens.",
+        "income_criteria": "None specified.",
+        "state_criteria": "Applicable across India.",
+        "age_criteria": "No specific age limit.",
+        "url": "https://www.digitalindia.gov.in"
+    },
+    {
+        "name": "Make in India",
+        "description": "Aims to encourage companies to manufacture in India and boost domestic production.",
+        "eligibility": "Businesses in manufacturing and service sectors.",
+        "income_criteria": "None specified.",
+        "state_criteria": "Applicable across India.",
+        "age_criteria": "Not applicable (for businesses).",
+        "url": "https://www.makeinindia.com"
+    },
+    {
+        "name": "Atal Pension Yojana (APY)",
+        "description": "Pension scheme targeted at the unorganized sector, offering a fixed pension after retirement.",
+        "eligibility": "Citizens aged 18 to 40 years with a bank account.",
+        "income_criteria": "None specified.",
+        "state_criteria": "Applicable across India.",
+        "age_criteria": "18 to 40 years.",
+        "url": "https://www.npscra.nsdl.co.in"
+    },
+    {
+        "name": "Stand Up India Scheme",
+        "description": "Provides loans between Rs. 10 lakh to Rs. 1 crore for SC/ST and women entrepreneurs.",
+        "eligibility": "SC/ST and women entrepreneurs aged 18+ starting a business.",
+        "income_criteria": "None specified.",
+        "state_criteria": "Applicable across India.",
+        "age_criteria": "18 years and above.",
+        "url": "https://www.standupmitra.in"
+    },
+    {
+        "name": "Beti Bachao Beti Padhao",
+        "description": "Social campaign to promote gender equality and educate the girl child.",
+        "eligibility": "Focus on girl children across India.",
+        "income_criteria": "None specified.",
+        "state_criteria": "Applicable across India.",
+        "age_criteria": "No specific age limit.",
+        "url": "https://wcd.nic.in"
+    },
+    {
+        "name": "Swachh Bharat Mission",
+        "description": "Nationwide cleanliness drive to eliminate open defecation and improve solid waste management.",
+        "eligibility": "Open to all citizens.",
+        "income_criteria": "None specified.",
+        "state_criteria": "Applicable across India.",
+        "age_criteria": "No specific age limit.",
+        "url": "https://swachhbharatmission.gov.in"
+    },
+    {
+        "name": "PM Kisan Samman Nidhi",
+        "description": "Financial support of Rs. 6,000 annually to small and marginal farmers.",
+        "eligibility": "Farmers owning cultivable land.",
+        "income_criteria": "None specified.",
+        "state_criteria": "Applicable across India.",
+        "age_criteria": "No specific age limit.",
+        "url": "https://pmkisan.gov.in"
+    },
+    {
+        "name": "PM Mudra Yojana",
+        "description": "Provides loans up to Rs. 10 lakh for non-corporate small businesses.",
+        "eligibility": "Non-corporate, non-farm small/micro enterprises.",
+        "income_criteria": "None specified.",
+        "state_criteria": "Applicable across India.",
+        "age_criteria": "18 years and above.",
+        "url": "https://www.mudra.org.in"
+    }
+]
