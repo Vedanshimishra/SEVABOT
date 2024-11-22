@@ -10,23 +10,44 @@
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            background: #f0f2f5;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+        }
+
+        #chatbotButton {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            font-size: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .chat-container {
+            display: none;
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
             width: 100%;
-            max-width: 450px;
+            max-width: 400px;
             background: #ffffff;
             border-radius: 15px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            display: flex;
             flex-direction: column;
-            height: 90vh;
+            height: 70vh;
         }
 
         .chat-header {
@@ -36,8 +57,6 @@
             font-size: 1.5rem;
             text-align: center;
             font-weight: 600;
-            border-top-left-radius: 15px;
-            border-top-right-radius: 15px;
         }
 
         .chatbox {
@@ -45,8 +64,6 @@
             overflow-y: auto;
             margin-bottom: 15px;
             padding: 15px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
             background: #f9f9f9;
         }
 
@@ -75,8 +92,6 @@
             display: flex;
             padding: 10px;
             background: #f1f1f1;
-            border-bottom-left-radius: 15px;
-            border-bottom-right-radius: 15px;
         }
 
         input {
@@ -86,12 +101,6 @@
             border: 1px solid #ccc;
             margin-right: 10px;
             font-size: 1rem;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-
-        input:focus {
-            border-color: #007bff;
         }
 
         button {
@@ -101,7 +110,6 @@
             border: none;
             border-radius: 10px;
             cursor: pointer;
-            transition: background 0.3s;
         }
 
         button:hover {
@@ -110,12 +118,12 @@
     </style>
 </head>
 <body>
-    <div class="chat-container">
-        <div class="chat-header">
-            SEVAbot
-        </div>
+    <button id="chatbotButton" onclick="toggleChat()">💬</button>
+
+    <div class="chat-container" id="chatContainer">
+        <div class="chat-header">SEVAbot</div>
         <div class="chatbox" id="chatbox">
-            <!-- Chat messages will appear here -->
+            <div class="message bot-message">Hope you're doing well today! How may I assist you?</div>
         </div>
         <div class="input-container">
             <input type="text" id="userInput" placeholder="Ask about a government scheme...">
@@ -124,6 +132,15 @@
     </div>
 
     <script>
+        let isChatOpen = false;
+
+        // Toggle chat visibility
+        function toggleChat() {
+            const chatContainer = document.getElementById('chatContainer');
+            isChatOpen = !isChatOpen;
+            chatContainer.style.display = isChatOpen ? 'flex' : 'none';
+        }
+
         // Check if Speech Synthesis is supported
         if ('speechSynthesis' in window) {
             console.log('Speech Synthesis API supported!');
@@ -156,6 +173,18 @@
             // Scroll to the bottom
             chatbox.scrollTop = chatbox.scrollHeight;
 
+            // Custom responses for greetings and farewells
+            const lowerInput = userInput.toLowerCase();
+            if (["hello", "hi", "hii", "hey"].includes(lowerInput)) {
+                displayBotMessage("Hello! How may I help you?");
+                return;
+            }
+            if (["bye", "goodbye", "see you"].includes(lowerInput)) {
+                displayBotMessage("Hope I have solved all your problems!");
+                toggleChat(); // Close chat
+                return;
+            }
+
             // Send message to the backend
             fetch('/chat', {
                 method: 'POST',
@@ -167,32 +196,25 @@
             .then(response => response.json())
             .then(data => {
                 // Display bot response
-                const botMessage = document.createElement('div');
-                botMessage.classList.add('message', 'bot-message');
-
-                // Format the response
-                if (data.response === "Sorry, no schemes matched your query. Please try again with different keywords.") {
-                    botMessage.innerHTML = data.response;
-                } else {
-                    // Insert links and line breaks in the response
-                    const schemesData = data.response.split("<hr>").map(scheme => {
-                        return scheme.replace(/<br>/g, "<p></p>");
-                    }).join("");
-
-                    botMessage.innerHTML = schemesData;
-                }
-
-                chatbox.appendChild(botMessage);
-
-                // Scroll to the bottom
-                chatbox.scrollTop = chatbox.scrollHeight;
-
-                // Speak the message in English
-                speak(data.response);
+                displayBotMessage(data.response);
             })
             .catch(error => {
                 console.error('Error:', error);
             });
+        }
+
+        function displayBotMessage(message) {
+            const chatbox = document.getElementById('chatbox');
+            const botMessage = document.createElement('div');
+            botMessage.classList.add('message', 'bot-message');
+            botMessage.innerHTML = message;
+            chatbox.appendChild(botMessage);
+
+            // Scroll to the bottom
+            chatbox.scrollTop = chatbox.scrollHeight;
+
+            // Speak the message in English
+            speak(message);
         }
     </script>
 </body>
